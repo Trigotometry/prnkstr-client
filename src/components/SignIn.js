@@ -5,7 +5,8 @@ import axios from 'axios';
 
 const SERVER_URL = "https://prnkstrserver.herokuapp.com/masters.json"
 
-class SignUp extends Component {
+
+class SignIn extends Component {
 	constructor(){
 		super();
 		this.state = {
@@ -38,20 +39,16 @@ class SignUp extends Component {
 	render() {
 		return (
 			<div>
-			<h1> SIGN UP </h1>
-			<br/>
+      <h1> SIGN IN </h1>
+      <br/>
 				<Form onSubmit={ this._handleSubmit } >
 					<Form.Group controlId="formBasicEmail">
 						<Form.Label>Master Name</Form.Label>
-						<Form.Control onChange={ this._handleChange } type="text" placeholder="Enter a user name..." />
+						<Form.Control onChange={ this._handleChange } type="text" placeholder="Enter your username" />
 					</Form.Group>
 					<Form.Group controlId="formBasicPassword">
 						<Form.Label>Password</Form.Label>
 						<Form.Control onChange={ this._handlePassword } type="password" placeholder="Password..." />
-					</Form.Group>
-					<Form.Group controlId="formBasicPassword">
-						<Form.Label>Confirm Password</Form.Label>
-						<Form.Control onChange={ this._handleConfirmPassword } type="password" placeholder="Confirm password..." />
 					</Form.Group>
 					<Button variant="primary" type="submit">
 						Submit
@@ -62,4 +59,4 @@ class SignUp extends Component {
 	}
 }
 
-export default SignUp;
+export default SignIn;
