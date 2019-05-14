@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
-
+import { Redirect } from 'react-router-dom'
 const SERVER_URL = "https://prnkstrserver.herokuapp.com/masters.json"
 
 
@@ -12,9 +12,20 @@ class SignIn extends Component {
 		this.state = {
 			masterName: '',
 			password: '',
-			confirmPassword: ''
+			confirmPassword: '',
+      SignUp: false,
+			SignIn: true
 		}
 	}
+
+  _handleSignUp = ( event ) => {
+    console.log("Link to sign up fired");
+    this.setState( {
+      SignUp: true,
+			SignIn: false
+    })
+  }
+
 	_handleChange = ( event ) => {
 		this.setState( {
 			masterName: event.target.value
@@ -37,6 +48,12 @@ class SignIn extends Component {
 		} )
 	}
 	render() {
+
+  if ( this.state.SignUp === true ) {
+    return <Redirect to='/SignUp' />
+  }
+
+	if ( this.state.SignIn === true ) {
 		return (
 			<div>
       <h1> SIGN IN </h1>
@@ -44,19 +61,23 @@ class SignIn extends Component {
 				<Form onSubmit={ this._handleSubmit } >
 					<Form.Group controlId="formBasicEmail">
 						<Form.Label>Master Name</Form.Label>
-						<Form.Control onChange={ this._handleChange } type="text" placeholder="Enter your username" />
+						<Form.Control onChange={ this._handleChange } type="text" placeholder="Enter your username " />
 					</Form.Group>
 					<Form.Group controlId="formBasicPassword">
 						<Form.Label>Password</Form.Label>
 						<Form.Control onChange={ this._handlePassword } type="password" placeholder="Password..." />
 					</Form.Group>
 					<Button variant="primary" type="submit">
-						Submit
+						Sign In
 					</Button>
 				</Form>
+          <Button variant="secondary" onClick={ this._handleSignUp }>
+            Sign Up
+          </Button>
 			</div>
 		);
-	}
+	 }
+  }
 }
 
 export default SignIn;

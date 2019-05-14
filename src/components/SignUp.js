@@ -9,9 +9,6 @@ class SignUp extends Component {
 	constructor(){
 		super();
 		this.state = {
-			masterName: '',
-			password: '',
-			confirmPassword: ''
 		}
 	}
 	_handleChange = ( event ) => {
@@ -32,10 +29,11 @@ class SignUp extends Component {
 	_handleSubmit = ( event ) => {
 		event.preventDefault();
 		axios.post( SERVER_URL, { name: this.state.masterName, password_digest: this.state.password } ).then( ( response ) => {
-			console.log(  response.data )
-		} )
+			console.log( response.data )
+		} ).then(()=> this.props.history.push('/Menu'))
 	}
 	render() {
+
 		return (
 			<div>
 			<h1> SIGN UP </h1>

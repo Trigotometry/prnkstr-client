@@ -1,25 +1,24 @@
 import React from 'react';
 import './App.css';
-import SignUp from './SignUp'
-import SignIn from './SignIn'
-import SlaveMenu from './SlaveMenu'
-import SlaveControlPanel from './SlaveControlPanel'
+import Home from './Home'
+import SignIn from './SignIn';
+import SignUp from './SignUp';
+import SlaveControlPanel from './SlaveControlPanel';
+import SlaveMenu from './SlaveMenu';
+import { Redirect } from 'react-router-dom'
+
 
 function App() {
   return (
     <div className="container">
-		<SignUp />
-    <br/>
-    <br/>
-		<SignIn />
-    <br/>
-    <br/>
-		<SlaveMenu />
-    <br/>
-    <br/>
-    <SlaveControlPanel />
+      <Home />
     </div>
   );
 }
 
 export default App;
+
+// <SignUp />
+// <SignIn />
+// <SlaveMenu />
+// <SlaveControlPanel />
