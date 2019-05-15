@@ -1,46 +1,39 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import './App.css';
-import SignUp from './SignUp'
-import SignIn from './SignIn'
-import Menu from './SlaveMenu'
-import SlaveControlPanel from './SlaveControlPanel'
-import { Redirect } from 'react-router-dom'
+// import './App.css';
+import SignIn from './SignIn';
+import SignUp from './SignUp';
+
+import { Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+
+import { Container, Row, Col } from 'react-bootstrap'
 
 class Home extends Component {
-  constructor(){
-    super();
-    this.state = {
-      masterName: '',
-      password: '',
-      confirmPassword: '',
-    }
-  }
-  render() {
-    return (
-    <div>
-    <h1> PRNKSTR </h1>
-    <SignIn />
-    </div>
-
-  )
-
-  }
+	constructor() {
+		super();
+		this.state = {
+			masterName: '',
+			password: '',
+			confirmPassword: '',
+		}
+	}
+	render() {
+		return (
+			<Container>
+				<Row>
+					<Col>
+						<h1 className="text-center mb-4">Welcome to Prnkstr</h1>
+					</Col>
+				</Row>
+				<Row>
+					<Col>
+						<SignIn />
+					</Col>
+				</Row>
+			</Container>
+		)
+	}
 }
 
 export default Home;
-
-// if ( this.state.SignIn ) {
-//  return < Redirect to= '/SignIn' />
-// }
-// if ( this.state.SignUp ) {
-//   return < Redirect to= '/SignUp' />
-// }
-// if ( this.state.Menu ) {
-//   return < Redirect to= '/Menu' />
-// }
-// if ( this.state.ControlPanel ) {
-//   return < Redirect to= '/ControlPanel' />
-// } else {
-// return  <h1> Nothing to display 404 </h1>
-// }
