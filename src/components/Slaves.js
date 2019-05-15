@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Redirect, Link } from 'react-router-dom'
 import { Container, Row, Col } from 'react-bootstrap'
 
 const MASTER_URL = "https://prnkstrserver.herokuapp.com/masters"
-const USER_URL = "https://prnkstrserver.herokuapp.com/user"
+const USER_URL = "https://prnkstrserver.herokuapp.com/users"
 
 class Slaves extends Component {
 	constructor( props ) {

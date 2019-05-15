@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-const SERVER_URL = "https://prnkstrserver.herokuapp.com/users"
+const USER_URL = "https://prnkstrserver.herokuapp.com/users"
 
 class UserEdit extends Component {
-  constructor(props) {
-    super(props);
+  constructor( props ) {
+    super( props );
     this.state = {
       id: '',
       name: '',
