@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-const SERVER_URL = "https://prnkstrserver.herokuapp.com/users"
+const USER_URL = "https://prnkstrserver.herokuapp.com/users"
 
 class UserEdit extends Component {
-  constructor(props) {
-    super(props);
+  constructor( props ) {
+    super( props );
     this.state = {
       name: '',
       fill_murray: false,
@@ -16,41 +16,45 @@ class UserEdit extends Component {
       paragraph_color: '',
       snap: false,
       master_id: '',
+	  id: props.match.params.user
     };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    // this.handleChange = this.handleChange.bind(this);
+    // this.handleSubmit = this.handleSubmit.bind(this);
     this.handleCancel = this.handleCancel.bind(this);
+
+	this.getSlave( this.state.id );
+
   }
 
-  getSlave(id) {
-    axios.get(`${SERVER_URL}/id/edit`)
-      .then((response) => {
-        this.setState(response.data)
-      })
-      .catch(error => console.log('error', error));
-  }
+	getSlave = ( id ) => {
+	  axios.get( USER_URL + "/" + id + ".json" )
+		  .then( ( response ) => {
+			  console.log( response.data )
+		  } )
+	}
 
-  handleSubmit(event) {
+  handleSubmit = ( event ) => {
     event.preventDefault();
-    axios({ method: 'patch', url: `${SERVER_URL}/${this.state.id}`, data: this.state})
-      .then(() => {
-        this.props.history.push(`/slaves/${this.state.id}`);
+    axios( { method: 'patch', url: `${ USER_URL }/${ this.state.id }`, data: this.state } )
+      .then( () => {
+        this.props.history.push( `/slaves/${ this.state.id }` );
       })
-      .catch(error => console.log('error', error));
+      .catch(error => console.log( 'error', error ) );
   }
 
-  handleChange(event) {
-    this.setState({ [event.target.name]: event.target.value });
+  handleChange = ( event ) => {
+    this.setState( { [ event.target.name ]: event.target.value } );
   }
 
-  handleCancel() {
-    this.props.history.push(`/slaves/${this.state.id}`);
+  handleCancel = () => {
+    this.props.history.push( `/slaves/${ this.state.id }` );
   }
 
   render() {
     return (
       <div>
-        <h1>Edit {this.state.name}</h1>
+		  { console.log(this.state.id) }
+		  <h1>Edit {this.state.name}</h1>
         <form onSubmit={this.handleSubmit}>
           <div className="form-group">
             <label>Name</label>
