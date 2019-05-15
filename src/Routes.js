@@ -10,10 +10,10 @@ const Routes = (
 	<Router>
 		<div>
 			<Route exact path="/" component={ Home } />
-			<Route exact path="/SignIn" component={ SignIn } />
-			<Route exact path="/SignUp" component={ SignUp } />
-			<Route exact path="/Slaves/:masterID" component={ Slaves } />
-			<Route exact path="/ControlPanel" component={ SlaveControlPanel } />
+			<Route exact path="/signIn" component={ SignIn } />
+			<Route exact path="/signUp" component={ SignUp } />
+			<Route path="/slaves/:master" component={ Slaves } />
+			<Route path="/controlpanel/:user" component={ SlaveControlPanel } />
 		</div>
 	</Router>
 )

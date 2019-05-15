@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+// import ReactDOM from 'react-dom';
 // import './App.css';
 import SignIn from './SignIn';
-import SignUp from './SignUp';
+// import SignUp from './SignUp';
 
-import { Redirect } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+// import { Redirect, Link } from 'react-router-dom';
 
-import { Container, Row, Col } from 'react-bootstrap'
+import { Container, Row, Col } from 'react-bootstrap';
 
 class Home extends Component {
 	constructor() {

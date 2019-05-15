@@ -66,10 +66,10 @@ class SignIn extends Component {
 
 	render() {
 		if ( this.state.SignUp === true ) {
-			return <Redirect to='/SignUp' />
+			return <Redirect to='/signUp' />
  		}
 		if ( this.state.masterMatch === true ) {
-			return <Redirect to={'/Slaves/' + this.state.masterId} />
+			return <Redirect to={'/slaves/' + this.state.masterId} />
 		}
 
 		if ( this.state.SignIn === true ) {

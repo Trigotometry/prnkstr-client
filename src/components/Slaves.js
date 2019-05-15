@@ -1,21 +1,35 @@
 import React, { Component } from 'react';
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
 import axios from 'axios';
-import { Redirect } from 'react-router-dom'
+import { BrowserRouter as Router, Redirect, Link } from 'react-router-dom'
 
 import { Container, Row, Col } from 'react-bootstrap'
 
-const SERVER_URL = "https://prnkstrserver.herokuapp.com/masters.json"
+const MASTER_URL = "https://prnkstrserver.herokuapp.com/masters"
+const USER_URL = "https://prnkstrserver.herokuapp.com/user"
 
-class Menu extends Component {
-  render() {
-    return (
-		<Container>
-
-		</Container>
-    )
-  }
+class Slaves extends Component {
+	constructor( props ) {
+		super( props );
+		this.state = {
+			masterId: props.match.params.master,
+			users: []
+		};
+		this.getSlaves( this.state.masterId );
+	}
+	getSlaves = ( id ) => {
+		axios.get( `${ MASTER_URL + '/' + id + '.json' }` ).
+			then( ( response ) => {
+				this.setState( { users: response.data.users } )
+			} )
+	}
+	render() {
+		return (
+			<Container>
+				{ this.state.users.map( ( user ) => <Link to={ '/controlpanel/' + user.id }><p key={ user.id }>{ user.name }</p></Link> )
+				}
+			</Container>
+		)
+	}
 }
 
-export default Menu;
+export default Slaves;
