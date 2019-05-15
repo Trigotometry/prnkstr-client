@@ -4,8 +4,8 @@ import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
 import SlaveControlPanel from './components/SlaveControlPanel';
 import SlaveMenu from './components/SlaveMenu';
-
 import { HashRouter as Router, Route } from 'react-router-dom';
+
 const Routes = (
   <Router>
     <div>
