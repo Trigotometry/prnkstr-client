@@ -2,8 +2,6 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import {Link} from "react-router-dom";
 
-import { Container, Row, Col, Form, Card, Button } from 'react-bootstrap';
-
 const USER_URL = "https://prnkstrserver.herokuapp.com/users"
 
 class UserEdit extends Component {
@@ -41,21 +39,24 @@ class UserEdit extends Component {
 
 	fetchSlave() {
 	let userId = this.props.match.params.user;
-	axios.get(`https://prnkstrserver.herokuapp.com/users/${userId}.json`).then(response => {
-		this.setState({
-		name: response.data.name,
-		fill_murray: response.data.fill_murray,
-		place_cage: response.data.place_cage,
-		custom_header: response.data.custom_header,
-		custom_header_text: response.data.custom_header_text,
-		paragraph_background: response.data.paragraph_background,
-		paragraph_color: response.data.paragraph_color,
-		snap: response.data.snap,
-		master_id: response.data.master_id
-		}, () => {
-		console.log(this.state);
-		});
-	}).catch(err => console.log(err));
+	axios
+		.get(`https://prnkstrserver.herokuapp.com/users/${ userId }.json`)
+		.then(response => {
+			this.setState( {
+				name: response.data.name,
+				fill_murray: response.data.fill_murray,
+				place_cage: response.data.place_cage,
+				custom_header: response.data.custom_header,
+				custom_header_text: response.data.custom_header_text,
+				paragraph_background: response.data.paragraph_background,
+				paragraph_color: response.data.paragraph_color,
+				snap: response.data.snap,
+				master_id: response.data.master_id
+			}, () => {
+			console.log(this.state);
+			});
+		})
+		.catch(err => console.log(err));
 	}
 
 	editSlave = async (e) => {
@@ -108,54 +109,67 @@ class UserEdit extends Component {
 		this.setState({master_id: e.target.value});
 	}
 
-	_handleFillMurrayOnClick = ( event ) => {
-		console.log(event.target.value);
+	_toggleFillMurray = () => {
+		this.setState( {
+			fill_murray: !this.state.fill_murray
+		});
+	}
+	_toggleCustomHeader = () => {
+		this.setState( {
+			place_cage: !this.state.place_cage
+		})
+	}
+	_toggleCustomHeader = () => {
+		this.setState( {
+			custom_header: !this.state.custom_header
+		})
+	}
+	_toggleSnap = () => {
+		this.setState( {
+			snap: !this.state.snap
+		})
 	}
 
 	render() {
 		return (
 			<div className="container">
-				<h1>Edit {this.state.name}</h1>
-				<form onSubmit={this._handleSubmit}>
-					<div className="form-group">
+				<h1>Edit { this.state.name }</h1>
+				<form onSubmit={ this._handleSubmit }>
+					<div className="">
 						<label>Name</label>
-						<input type="text" name="name" value={this.state.name} onChange={this._handleChangeName} className="form-control"/>
+						<input className="" type="text" name="name" value={ this.state.name } onChange={ this._handleChangeName } />
 					</div>
-					<div className="form-group form-check">
-						<input type="checkbox" class="form-check-input" onClick={ this._handleFillMurrayOnClick } value={ this.state.fill_murray } checked={ this.state.fill_murray } />
-						<label class="form-check-label">Fill Murray?</label>
+					<div className="">
+						<input className="" type="checkbox" onChange={ this._toggleFillMurray } value={ this.state.fill_murray } checked={ this.state.fill_murray } />
+						<label className="">Fill Murray?</label>
 					</div>
-					<div className="form-group">
-						<label>Place Cage</label>
-						<input type="text" name="place_cage" value={this.state.place_cage} onChange={this._handleChangePlaceCage} className="form-control"/>
+					<div className="">
+						<input className="" type="checkbox" onChange={ this._togglePlaceCage } value={ this.state.place_cage } checked={ this.state.place_cage } />
+						<label className="">Place Cage</label>
 					</div>
-					<div className="form-group">
-						<label>Custom Header</label>
-						<textarea type="text" name="custom_header" value={this.state.custom_header} onChange={this._handleChangeCustomHeader} className="form-control"/>
+					<div className="">
+						<input className="" type="checkbox" onChange={ this._toggleCustomHeader } value={ this.state.custom_header } checked={ this.state.custom_header } />
+						<label className="">Custom Header</label>
 					</div>
-					<div className="form-group">
+					<div className="">
 						<label>Custom Header Text</label>
-						<input type="text" name="custom_header_text" value={this.state.custom_header_text} onChange={this._handleChangeCustomHeaderText} className="form-control"/>
+						<input className="" type="text" name="custom_header_text" value={ this.state.custom_header_text } onChange={ this._handleChangeCustomHeaderText } />
 					</div>
-					<div className="form-group">
+					<div className="">
 						<label>Paragraph Background</label>
-						<textarea type="text" name="paragraph_background" value={this.state.paragraph_background} onChange={this._handleChangeParagraphBackground} className="form-control"/>
+						<textarea className="" type="text" name="paragraph_background" value={ this.state.paragraph_background } onChange={ this._handleChangeParagraphBackground } />
 					</div>
-					<div className="form-group">
+					<div className="">
 						<label>Paragraph Color</label>
-						<textarea type="text" name="paragraph_color" value={this.state.paragraph_color} onChange={this._handleChangeParagraphColor} className="form-control"/>
+						<textarea className="" type="text" name="paragraph_color" value={ this.state.paragraph_color } onChange={ this._handleChangeParagraphColor } />
 					</div>
-					<div className="form-group">
-						<label>Snap</label>
-						<textarea type="text" name="snap" value={this.state.snap} onChange={this._handleChangeSnap} className="form-control"/>
-					</div>
-					<div className="form-group">
-						<label>Master</label>
-						<textarea type="text" name="content" value={this.state.master_id} onChange={this._handleChangeMasterId} className="form-control"/>
+					<div className="">
+						<input className="" type="checkbox" onChange={ this._toggleSnap } value={ this.state.snap } checked={ this.state.snap } />
+						<label className="">Snap</label>
 					</div>
 					<div className="btn-group">
-						<input type="submit" className="btn btn-dark" value="Update"/>
-						<button type="button" onClick={this.handleCancel} className="btn btn-secondary">Cancel</button>
+						<input type="submit" className="" value="Update"/>
+						<button className="btn btn-secondary" type="button" onClick={ this.handleCancel }>Cancel</button>
 					</div>
 				</form>
 			</div>
