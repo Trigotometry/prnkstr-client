@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
 
 import { Redirect } from 'react-router-dom'
 import { Link } from 'react-router-dom';
 
-import { Container, Row, Col, Alert } from 'react-bootstrap'
+import { Alert } from 'react-bootstrap'
 
 const SERVER_URL = "https://prnkstrserver.herokuapp.com/masters.json"
 
@@ -30,7 +29,7 @@ class SignIn extends Component {
 		this.setState( {
 			SignUp: true,
 			SignIn: false
-		})
+		} );
 	}
 	_handleName = ( event ) => {
 		this.setState( {
@@ -49,7 +48,8 @@ class SignIn extends Component {
 	}
 	_handleSubmit = ( event ) => {
 		event.preventDefault();
-		axios.get( SERVER_URL )
+		axios
+			.get( SERVER_URL )
 			.then( ( response ) => {
 				// console.log( response )
 				for ( let i = 0; i < response.data.length; i += 1 ) {
@@ -72,51 +72,49 @@ class SignIn extends Component {
 			return <Redirect to={'/slaves/' + this.state.masterId} />
 		}
 
-		if ( this.state.SignIn === true ) {
-			return (
-					<Container>
-						<Row>
-							<Col className="text-center">
-								<h4>Sign In</h4>
-							</Col>
-						</Row>
-						<Row className="justify-content-center mb-4">
-							<Col lg={4} md={8}>
-								<Form onSubmit={ this._handleSubmit } >
-									<Form.Group controlId="formBasicEmail">
-										<Form.Label>Master Name</Form.Label>
-										<Form.Control onChange={ this._handleName } type="text" placeholder="Enter, master..." />
-									</Form.Group>
-									<Form.Group controlId="formBasicPassword">
-										<Form.Label>Password</Form.Label>
-										<Form.Control onChange={ this._handlePassword } type="password" placeholder="Password..." />
-									</Form.Group>
-									<Row>
-										<Col className="text-center">
-											<Button variant="btn btn-primary" type="submit">Sign In</Button>
-										</Col>
-									</Row>
-									<Row>
-										<Col>
-											{ this.state.loginError !== '' &&
-												<Alert variant="danger">
-													{ this.state.loginError }
-												</Alert>
-											}
-										</Col>
-									</Row>
-								</Form>
-							</Col>
-						</Row>
-						<Row className="justify-content-center">
-							<Col lg={4} md={8} className="text-center">
-								<Link className="" to="/signup"><h5>No Account? No Worries.</h5></Link>
-							</Col>
-						</Row>
-					</Container>
-			);
-		}
-  }
+		return(
+			<div className="container">
+				<div className="row justify-content-center">
+					<div className="col-lg-4 col-md-6">
+						<img className="img-fluid py-4" src={ process.env.PUBLIC_URL + '/prnkstr_long_logo.svg' } />
+					</div>
+				</div>
+				<div className="row justify-content-center">
+					<div className="col-lg-4 col-md-6 text-center">
+						<h4>Sign In</h4>
+					</div>
+				</div>
+				<form onSubmit={ this._handleSubmit }>
+					<div className="row justify-content-center mb-4">
+						<div className="col-lg-4 col-md-6">
+							<div className="form-group">
+								<label>Master Name</label>
+								<input className="form-control" onChange={ this._handleName } type="text" placeholder="Enter, master..." />
+							</div>
+						</div>
+					</div>
+					<div className="row justify-content-center mb-4">
+						<div className="col-lg-4 col-md-6">
+							<div className="form-group">
+								<label>Password</label>
+								<input className="form-control" onChange={ this._handlePassword } type="password" placeholder="Password..." />
+							</div>
+						</div>
+					</div>
+					<div className="row text-center justify-content-center mb-4">
+						<div className="col-lg-4 col-md-6">
+							<button className="btn btn-block btn-outline-success" type="submit">Submit</button>
+						</div>
+					</div>
+				</form>
+				<div className="row justify-content-center">
+					<div className="col-lg-4 col-md-6" className="text-center">
+						<Link to="/signup"><h5 className="text-danger">No Account? No Worries.</h5></Link>
+					</div>
+				</div>
+			</div>
+		);
+	}
 } // end SignIn component
 
 export default SignIn;
