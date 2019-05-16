@@ -8,17 +8,7 @@ class UserEdit extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: [],
-      // id: '',
-      // name: '',
-      // fill_murray: '',
-      // place_cage: '',
-      // custom_header: '',
-      // custom_header_text:'',
-      // paragraph_background: '',
-      // paragraph_color:'',
-      // snap: '',
-      // master_id: ''
+
     };
 
     this._handleChangeName = this._handleChangeName.bind(this);
@@ -58,7 +48,7 @@ class UserEdit extends Component {
 
   editSlave = async (e) => {
     let userId = this.props.match.params.user
-    axios.put( `https://prnkstrserver.herokuapp.com/users/${userId}.json`, {
+    axios.put(`https://prnkstrserver.herokuapp.com/users/${userId}.json`, {
       "name": this.state.name,
       "fill_murray": this.state.fill_murray,
       "place_cage": this.state.place_cage,
@@ -68,8 +58,7 @@ class UserEdit extends Component {
       "paragraph_color": this.state.paragraph_color,
       "snap": this.state.snap,
       "master_id": this.state.master_id
-    })
-    .then(r => console.log(r.status)).catch(e => console.log(e))
+    }).then(r => console.log(r.status)).catch(e => console.log(e))
   }
 
   _handleSubmit = async e => {
@@ -105,15 +94,17 @@ class UserEdit extends Component {
     this.setState({master_id: e.target.value});
   }
 
+
   render() {
-    return (<div>
+    return (
+      <div>
 
       <h1>Edit {this.state.name}</h1>
-      <form onSubmit={this._handleSubmit}>
-        <div className="form-group">
-          <label>Name</label>
-          <input type="text" name="name" value={this.state.name} onChange={this._handleChangeName} className="form-control"/>
-        </div>
+      <form onSubmit={this._handleSubmit
+      } > <div className="form-group">
+        <label>Name</label>
+        <input type="text" name="name" value={this.state.name} onChange={this._handleChangeName} className="form-control"/>
+      </div>
         <div className="form-group">
           <label>Fill Murray</label>
           <textarea type="text" name="fill_murray" value={this.state.fill_murray} onChange={this._handleChangeFillMurray} className="form-control"/>
@@ -151,8 +142,9 @@ class UserEdit extends Component {
           <button type="button" onClick={this.handleCancel} className="btn btn-secondary">Cancel</button>
         </div>
       </form>
-    </div>);
-  }
+    </div>
+  );
+}
 }
 
-export default UserEdit;
+export default UserEdit
