@@ -35,7 +35,6 @@ class UserEdit extends Component {
 
   componentDidMount() {
     this.fetchSlave();
-    this.editSlave();
   }
 
   fetchSlave() {
@@ -58,41 +57,24 @@ class UserEdit extends Component {
   }
 
   editSlave = async (e) => {
-    axios.put( 'https://prnkstrserver.herokuapp.com/users/51.json', {"name": "adlan was here"})
+    let userId = this.props.match.params.user
+    axios.put( `https://prnkstrserver.herokuapp.com/users/${userId}.json`, {
+      "name": this.state.name,
+      "fill_murray": this.state.fill_murray,
+      "place_cage": this.state.place_cage,
+      "custom_header": this.state.custom_header,
+      "custom_header_text": this.state.custom_header_text,
+      "paragraph_background": this.state.paragraph_background,
+      "paragraph_color": this.state.paragraph_color,
+      "snap": this.state.snap,
+      "master_id": this.state.master_id
+    })
     .then(r => console.log(r.status)).catch(e => console.log(e))
   }
 
-    // axios.put( `https://prnkstrserver.herokuapp.com/users/51.json`,
-  //     {
-  //       name: this.state.name,
-  //       fill_murray: this.state.fill_murray,
-  //       place_cage: this.state.place_cage,
-  //       custom_header: this.state.custom_header,
-  //       custom_header_text: this.state.custom_header_text,
-  //       paragraph_background: this.state.paragraph_background,
-  //       paragraph_color: this.state.paragraph_color,
-  //       snap: this.state.snap,
-  //       master_id: this.state.master_id
-  //     }
-  //   ).then((results) => {
-  //     console.log('results data', results);
-  //     this.setState({
-  //       users: [
-  //         ...this.state.users,
-  //         results.data
-  //       ]
-  //     });
-  //   }).catch(err => console.log(err));
-  // }
-
   _handleSubmit = async e => {
     e.preventDefault();
-    const userId = this.props.match.params.user;
-    const userUpdate = {
-      ...this.state.user
-    };
     this.editSlave();
-    await this.fetchSlave();
   };
 
   _handleChangeName(e) {
