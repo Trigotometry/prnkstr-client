@@ -23,6 +23,12 @@ class Slaves extends Component {
 	render() {
 		return (
 			<div className="container">
+			  <div className="row justify-content-center">
+					<div className="col-lg-4 col-md-6">
+						<img className="img-fluid py-4" src={ process.env.PUBLIC_URL + '/prnkstr_long_logo.svg' } />
+						<h2> Current Connections </h2>
+					</div>
+				</div>
 				{ this.state.users.map( ( user ) => <Link to={ '/controlpanel/' + user.id }><div className="card"><p key={ user.id }>{ user.name }</p></div></Link> ) }
 			</div>
 		)

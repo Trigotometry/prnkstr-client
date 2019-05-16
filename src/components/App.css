@@ -22,6 +22,11 @@ form{
   display: inline-block;
   vertical-align: top;
   padding: 10px;
+  /* transition: transform .2s; */
+}
+
+.postIt:hover{
+  /* transform: scale(1.2); */
 }
 
 .postItsml {
@@ -42,11 +47,13 @@ form{
   width: 100%;
   height: 40px;
   width: 100%;
-  height: 93px;
+  height: 110px;
   border: none;
   text-align: center;
-  font-size: 32px;
+  font-size: 50px;
   font-family: 'Permanent Marker', cursive;
+  color: #010440;
+  background-color: #F2F0CE;
 }
 
 .gridme{
@@ -57,6 +64,7 @@ form{
 
 #nameBox {
   transform: rotate(2deg);
+  background-color: #F2F0CE;
 }
 #fillMurrayBox {
   transform: rotate(-1deg);
@@ -68,9 +76,10 @@ form{
   display: inline-block;
   text-align: center;
   transform: rotate(4deg);
+  padding: 31px;
 }
 #customBackgroundBox {
-    padding: 23px;
+    padding: 31px;
     display: inline-block;
     text-align: center;
     transform: rotate(-0.5deg);
@@ -78,7 +87,7 @@ form{
 #awwSnapBox {
   display: inline-block;
   text-align: center;
-  transform: rotate(1deg);
+  transform: rotate(4deg);
   background-image: url("https://systweak1.vo.llnwd.net/content/wp/systweakblogsnew/uploads_new/2018/03/How-to-Fix-Aw-Snap-Error-in-Chrome1.jpg");
   background-size: 90%;
   padding: 69px;

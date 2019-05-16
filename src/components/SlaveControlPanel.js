@@ -134,45 +134,49 @@ class UserEdit extends Component {
 	render() {
 		return (
    <div className="BackdropColor">
+		 <div className="row justify-content-center">
+			 <div className="col-lg-4 col-md-6">
+				 <img className="img-fluid py-4" src={ process.env.PUBLIC_URL + '/prnkstr_long_white.svg' } />
+			 </div>
+		 </div>
 
-			<h1>Edit { this.state.name }</h1>
+
 			<div className="container">
 
 
 				<form onSubmit={ this._handleSubmit } className="gridme">
 					<div className="postItlrg postIt" id="nameBox" >
-						<label>Name</label>
+						<label>Now Editing:</label>
 						<input className="nameInput" type="text" name="name" value={ this.state.name } onChange={ this._handleChangeName } />
 					</div>
 					<div className="postItlrg postIt" id="fillMurrayBox">
 						<img src="https://www.fillmurray.com/80/155" />
-						<h3 className="padding10px">Fill Murray?</h3>
+						<h4 className="padding10px">Fill Murray?</h4>
 						<input type="checkbox" onChange={ this._toggleFillMurray } value={ this.state.fill_murray } checked={ this.state.fill_murray } className="inlineBlock" />
 
 
 					</div>
 					<div className="postItlrg postIt" id="placeCageBox">
 						<img src="https://www.placecage.com/80/155" />
-						<h3 className="padding10px">Place Cage</h3>
+						<h4 className="padding10px">Place Cage?</h4>
 						<input type="checkbox" onChange={ this._togglePlaceCage } value={ this.state.place_cage } checked={ this.state.place_cage } />
 					</div>
 
 					<div className="postItlrg postIt" id="customHeaderBox">
 						<input  type="checkbox" onChange={ this._toggleCustomHeader } value={ this.state.custom_header } checked={ this.state.custom_header } />
 						<label>Custom Header</label>
-						<h4>Custom Header Text</h4>
+						<h6>Custom Header Text</h6>
 						<input type="text" name="custom_header_text" value={ this.state.custom_header_text } onChange={ this._handleChangeCustomHeaderText } />
 					</div>
 
 					<div className="postItlrg postIt" id="customBackgroundBox">
-						<h5>Paragraph Background</h5>
+
 						<input type="checkbox" name="paragraph_background" value={ this.state.paragraph_background } onChange={ this._handleChangeParagraphBackground } />
-						<h5>Paragraph Color</h5>
+						<label>Paragraph Background</label>
+						<h6>Paragraph Color</h6>
 						<input className="" type="text" name="paragraph_color" value={ this.state.paragraph_color } onChange={ this._handleChangeParagraphColor } />
 					</div>
 
-
-
 					<div className="postItlrg postIt" id="">
 						<h5>New Feature Here</h5>
 						<input type="checkbox" name="paragraph_background" />
@@ -192,7 +196,7 @@ class UserEdit extends Component {
 						<input type="checkbox" name="paragraph_background" />
 					</div>
 
-					
+
 
 					<div className="postItlrg postIt" id="awwSnapBox">
 						<input className="" type="checkbox" onChange={ this._toggleSnap } value={ this.state.snap } checked={ this.state.snap } />

@@ -32,10 +32,11 @@ class Home extends Component {
 		return (
 			<Container>
 				<Row>
-				<div className="col-4 col-offset-4 justify-center">
+					<div className="col-4 col-offset-4 justify-center">
 						<img src={logo} alt="Logo" className="img-fluid"/>
-						</div>
+					</div>
 				</Row>
+				
 				<Row>
 					<Col>
 						<SignIn />
