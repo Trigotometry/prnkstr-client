@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { BrowserRouter as Router, Redirect, Link } from 'react-router-dom'
 
-import { Container, Row, Col } from 'react-bootstrap'
-
 const MASTER_URL = "https://prnkstrserver.herokuapp.com/masters"
 const USER_URL = "https://prnkstrserver.herokuapp.com/users"
 
@@ -24,10 +22,15 @@ class Slaves extends Component {
 	}
 	render() {
 		return (
-			<Container>
-				{ this.state.users.map( ( user ) => <Link to={ '/controlpanel/' + user.id }><p key={ user.id }>{ user.name }</p></Link> )
-				}
-			</Container>
+			<div className="container">
+			  <div className="row justify-content-center">
+					<div className="col-lg-4 col-md-6">
+						<img className="img-fluid py-4" src={ process.env.PUBLIC_URL + '/prnkstr_long_logo.svg' } />
+						<h2> Current Connections </h2>
+					</div>
+				</div>
+				{ this.state.users.map( ( user ) => <Link to={ '/controlpanel/' + user.id }><div className="card"><p key={ user.id }>{ user.name }</p></div></Link> ) }
+			</div>
 		)
 	}
 }
