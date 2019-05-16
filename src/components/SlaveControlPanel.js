@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import {Link} from "react-router-dom";
 
+import { Container, Row, Col, Form, Card, Button } from 'react-bootstrap';
+
 const USER_URL = "https://prnkstrserver.herokuapp.com/users"
 
 class UserEdit extends Component {
@@ -68,7 +70,7 @@ class UserEdit extends Component {
       "paragraph_color": this.state.paragraph_color,
       "snap": this.state.snap,
       "master_id": this.state.master_id
-    })
+  })
     .then(r => console.log(r.status)).catch(e => console.log(e))
   }
 
@@ -106,52 +108,84 @@ class UserEdit extends Component {
   }
 
   render() {
-    return (<div>
+    return (
+		<Container>
 
-      <h1>Edit {this.state.name}</h1>
-      <form onSubmit={this._handleSubmit}>
-        <div className="form-group">
-          <label>Name</label>
-          <input type="text" name="name" value={this.state.name} onChange={this._handleChangeName} className="form-control"/>
-        </div>
-        <div className="form-group">
-          <label>Fill Murray</label>
-          <textarea type="text" name="fill_murray" value={this.state.fill_murray} onChange={this._handleChangeFillMurray} className="form-control"/>
-        </div>
-        <div className="form-group">
-          <label>Place Cage</label>
-          <input type="text" name="place_cage" value={this.state.place_cage} onChange={this._handleChangePlaceCage} className="form-control"/>
-        </div>
-        <div className="form-group">
-          <label>Custom Header</label>
-          <textarea type="text" name="custom_header" value={this.state.custom_header} onChange={this._handleChangeCustomHeader} className="form-control"/>
-        </div>
-        <div className="form-group">
-          <label>Custom Header Text</label>
-          <input type="text" name="custom_header_text" value={this.state.custom_header_text} onChange={this._handleChangeCustomHeaderText} className="form-control"/>
-        </div>
-        <div className="form-group">
-          <label>Paragraph Background</label>
-          <textarea type="text" name="paragraph_background" value={this.state.paragraph_background} onChange={this._handleChangeParagraphBackground} className="form-control"/>
-        </div>
-        <div className="form-group">
-          <label>Paragraph Color</label>
-          <textarea type="text" name="paragraph_color" value={this.state.paragraph_color} onChange={this._handleChangeParagraphColor} className="form-control"/>
-        </div>
-        <div className="form-group">
-          <label>Snap</label>
-          <textarea type="text" name="snap" value={this.state.snap} onChange={this._handleChangeSnap} className="form-control"/>
-        </div>
-        <div className="form-group">
-          <label>Master</label>
-          <textarea type="text" name="content" value={this.state.master_id} onChange={this._handleChangeMasterId} className="form-control"/>
-        </div>
-        <div className="btn-group">
-          <input type="submit" className="btn btn-dark" value="Update"/>
-          <button type="button" onClick={this.handleCancel} className="btn btn-secondary">Cancel</button>
-        </div>
-      </form>
-    </div>);
+								<h1>Editing: <strong>{ this.state.name }</strong></h1>
+								<Form onSubmit={ this._handleSubmit }>
+									<Form.Group>
+										<Card>
+											<Card.Body>
+												<Card.Title>
+													<Form.Label>Slave Name</Form.Label>
+													<Form.Control type="text" placeholder="Update name..." value={ this.state.name } onChange={ this._handleChangeName } />
+												</Card.Title>
+											</Card.Body>
+										</Card>
+									</Form.Group>
+
+									<Form.Group>
+										<Card>
+											<Card.Body>
+												<Form.Check type="checkbox" label="Fill Murray?" value={true} isValid={ this.state.fill_murray } onClick={ this._handleOnClickFillMurray } />
+											</Card.Body>
+										</Card>
+									</Form.Group>
+
+									<Form.Group>
+										<Card>
+											<Card.Body>
+												<Form.Check type="checkbox" label="Place Cage?" value={ this.state.place_cage } onChange={ this._handleChangePlaceCage } />
+											</Card.Body>
+										</Card>
+									</Form.Group>
+
+									<Form.Group>
+										<Card>
+											<Card.Body>
+												<Form.Label>Custom Heading</Form.Label>
+												<Form.Check type="checkbox" label="Custom H1 text..." value={ this.state.custom_header } onChange={ this._handleChangeCustomHeader } />
+												<Form.Control type="text" placeholder="Custom heading text..." value={ this.state.custom_header_text } onChange={ this._handleChangeCustomHeaderText } />
+											</Card.Body>
+										</Card>
+									</Form.Group>
+
+									<Form.Group>
+										<Card>
+											<Card.Body>
+												<Form.Label>Paragraph Background Hex</Form.Label>
+												<Form.Check type="checkbox" label="Change paragraph background color?" value={ this.state.custom_header } onChange={ this._handleChangeParagraphBackground } />
+												<Form.Control type="text" placeholder="#A2B3C4 etc..." value={ this.state.paragraph_background } onChange={ this._handleChangeParagraphColor } />
+											</Card.Body>
+										</Card>
+									</Form.Group>
+
+									<Form.Group>
+										<Card>
+											<Card.Body>
+												<Form.Label>Paragraph Text Color #Hex</Form.Label>
+												<Form.Check type="checkbox" label="Change paragraph text color?" value={ this.state.custom_header } onChange={ this._handleInputChange } />
+												<Form.Control type="text" placeholder="#D4E5F6 etc..." value={ this.state.paragraph_color } onChange={ this._handleInputChange } />
+											</Card.Body>
+										</Card>
+									</Form.Group>
+
+									<Form.Group>
+										<Card>
+											<Card.Body>
+												<Form.Check type="checkbox" label="Chrome 'Aww Snap' Page?" value={ this.state.snap } onChange={ this._handleChangeSnap } />
+											</Card.Body>
+										</Card>
+									</Form.Group>
+
+									<Button variant="primary" type="submit">
+										Submit
+									</Button>
+								</Form>
+
+							</Container>
+
+	);
   }
 }
 
