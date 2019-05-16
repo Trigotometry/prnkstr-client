@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import axios from 'axios';
+import logo from './prnkstr_logo_long.svg'
+
+
 // import ReactDOM from 'react-dom';
 // import './App.css';
 import SignIn from './SignIn';
@@ -17,13 +21,20 @@ class Home extends Component {
 			confirmPassword: '',
 		}
 	}
+
+  componentDidMount() {
+    axios.put( 'https://prnkstrserver.herokuapp.com/users/51.json', {"name": "Was Sams MBa testing name update with the Yianster"})
+    .then(r => console.log(r.status)).catch(e => console.log(e))
+  }
+
+
 	render() {
 		return (
 			<Container>
 				<Row>
-					<Col>
-						<h1 className="text-center mb-4">Welcome to Prnkstr</h1>
-					</Col>
+				<div className="col-4 col-offset-4 justify-center">
+						<img src={logo} alt="Logo" className="img-fluid"/>
+						</div>
 				</Row>
 				<Row>
 					<Col>

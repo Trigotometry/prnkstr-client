@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import './App.css';
 import {Link} from "react-router-dom";
 
 const USER_URL = "https://prnkstrserver.herokuapp.com/users"
@@ -114,7 +115,7 @@ class UserEdit extends Component {
 			fill_murray: !this.state.fill_murray
 		});
 	}
-	_toggleCustomHeader = () => {
+	_togglePlaceCage = () => {
 		this.setState( {
 			place_cage: !this.state.place_cage
 		})
@@ -132,46 +133,78 @@ class UserEdit extends Component {
 
 	render() {
 		return (
+   <div className="BackdropColor">
+
+			<h1>Edit { this.state.name }</h1>
 			<div className="container">
-				<h1>Edit { this.state.name }</h1>
-				<form onSubmit={ this._handleSubmit }>
-					<div className="">
+
+
+				<form onSubmit={ this._handleSubmit } className="gridme">
+					<div className="postItlrg postIt" id="nameBox" >
 						<label>Name</label>
-						<input className="" type="text" name="name" value={ this.state.name } onChange={ this._handleChangeName } />
+						<input className="nameInput" type="text" name="name" value={ this.state.name } onChange={ this._handleChangeName } />
 					</div>
-					<div className="">
-						<input className="" type="checkbox" onChange={ this._toggleFillMurray } value={ this.state.fill_murray } checked={ this.state.fill_murray } />
-						<label className="">Fill Murray?</label>
+					<div className="postItlrg postIt" id="fillMurrayBox">
+						<img src="https://www.fillmurray.com/80/155" />
+						<h3 className="padding10px">Fill Murray?</h3>
+						<input type="checkbox" onChange={ this._toggleFillMurray } value={ this.state.fill_murray } checked={ this.state.fill_murray } className="inlineBlock" />
+
+
 					</div>
-					<div className="">
-						<input className="" type="checkbox" onChange={ this._togglePlaceCage } value={ this.state.place_cage } checked={ this.state.place_cage } />
-						<label className="">Place Cage</label>
+					<div className="postItlrg postIt" id="placeCageBox">
+						<img src="https://www.placecage.com/80/155" />
+						<h3 className="padding10px">Place Cage</h3>
+						<input type="checkbox" onChange={ this._togglePlaceCage } value={ this.state.place_cage } checked={ this.state.place_cage } />
 					</div>
-					<div className="">
-						<input className="" type="checkbox" onChange={ this._toggleCustomHeader } value={ this.state.custom_header } checked={ this.state.custom_header } />
-						<label className="">Custom Header</label>
+
+					<div className="postItlrg postIt" id="customHeaderBox">
+						<input  type="checkbox" onChange={ this._toggleCustomHeader } value={ this.state.custom_header } checked={ this.state.custom_header } />
+						<label>Custom Header</label>
+						<h4>Custom Header Text</h4>
+						<input type="text" name="custom_header_text" value={ this.state.custom_header_text } onChange={ this._handleChangeCustomHeaderText } />
 					</div>
-					<div className="">
-						<label>Custom Header Text</label>
-						<input className="" type="text" name="custom_header_text" value={ this.state.custom_header_text } onChange={ this._handleChangeCustomHeaderText } />
+
+					<div className="postItlrg postIt" id="customBackgroundBox">
+						<h5>Paragraph Background</h5>
+						<input type="checkbox" name="paragraph_background" value={ this.state.paragraph_background } onChange={ this._handleChangeParagraphBackground } />
+						<h5>Paragraph Color</h5>
+						<input className="" type="text" name="paragraph_color" value={ this.state.paragraph_color } onChange={ this._handleChangeParagraphColor } />
 					</div>
-					<div className="">
-						<label>Paragraph Background</label>
-						<textarea className="" type="text" name="paragraph_background" value={ this.state.paragraph_background } onChange={ this._handleChangeParagraphBackground } />
+
+
+
+					<div className="postItlrg postIt" id="">
+						<h5>New Feature Here</h5>
+						<input type="checkbox" name="paragraph_background" />
 					</div>
-					<div className="">
-						<label>Paragraph Color</label>
-						<textarea className="" type="text" name="paragraph_color" value={ this.state.paragraph_color } onChange={ this._handleChangeParagraphColor } />
+
+					<div className="postItsml postIt" id="">
+						<h5>New Feature Here</h5>
+						<input type="checkbox" name="paragraph_background" />
 					</div>
-					<div className="">
+					<div className="postItlrg postIt" id="">
+						<h5>New Feature Here</h5>
+						<input type="checkbox" name="paragraph_background" />
+					</div>
+
+					<div className="postItsml postIt" id="">
+						<h5>New Feature Here</h5>
+						<input type="checkbox" name="paragraph_background" />
+					</div>
+
+					
+
+					<div className="postItlrg postIt" id="awwSnapBox">
 						<input className="" type="checkbox" onChange={ this._toggleSnap } value={ this.state.snap } checked={ this.state.snap } />
 						<label className="">Snap</label>
 					</div>
-					<div className="btn-group">
-						<input type="submit" className="" value="Update"/>
+
+					<div className="postItsml postIt" id="submitButtonBox">
+						<input type="submit" className="" value="Update" id="submitButton"/>
 						<button className="btn btn-secondary" type="button" onClick={ this.handleCancel }>Cancel</button>
 					</div>
 				</form>
+			</div>
 			</div>
 
 		);

@@ -93,7 +93,7 @@ class SignIn extends Component {
 									</Form.Group>
 									<Row>
 										<Col className="text-center">
-											<Button variant="success" type="submit">Sign In</Button>
+											<Button variant="btn btn-primary" type="submit">Sign In</Button>
 										</Col>
 									</Row>
 									<Row>
