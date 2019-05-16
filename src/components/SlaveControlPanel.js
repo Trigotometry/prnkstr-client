@@ -177,24 +177,48 @@ class UserEdit extends Component {
 						<input className="" type="text" name="paragraph_color" value={ this.state.paragraph_color } onChange={ this._handleChangeParagraphColor } />
 					</div>
 
+
+					<div className="postItsml postIt" id="">
+						<h5>Stranger Things </h5>
+						<input type="checkbox" name="paragraph_background" />
+					</div>
 					<div className="postItlrg postIt" id="">
-						<h5>New Feature Here</h5>
+						<h5> Flip Page </h5>
 						<input type="checkbox" name="paragraph_background" />
 					</div>
 
 					<div className="postItsml postIt" id="">
-						<h5>New Feature Here</h5>
-						<input type="checkbox" name="paragraph_background" />
-					</div>
-					<div className="postItlrg postIt" id="">
-						<h5>New Feature Here</h5>
+						<h5> Other side</h5>
 						<input type="checkbox" name="paragraph_background" />
 					</div>
 
+					<div className="postItlrg postIt" id="">
+						<h5> Marquee </h5>
+						<input type="checkbox" name="paragraph_background" />
+						<input type="range" id="marqueeSpeed" name="speed" min="1" max="500" />
+						<label>Marque Speed</label>
+						<input type="text" id="marqueeElement" name="marqueeElement" value="div" />
+						<label >Marque Element</label>
+					</div>
+
 					<div className="postItsml postIt" id="">
-						<h5>New Feature Here</h5>
+						<h5> Unicorn Mode </h5>
 						<input type="checkbox" name="paragraph_background" />
 					</div>
+
+					<div className="postItlrg postIt" id="">
+						<h5> Word Swapper </h5>
+						<input type="checkbox" name="wordswapper" />
+						<input type="text" name="paragraph_background" value="Old word"/>
+						<input type="text" name="paragraph_background" value="Replaced word"/>
+					</div>
+
+					<div className="postItlrg postIt" id="">
+						<h5> Hidden Video </h5>
+						<input type="checkbox" name="wordswapper" />
+						<input type="text" name="paragraph_background" value="Your video URL"/>
+					</div>
+
 
 
 
