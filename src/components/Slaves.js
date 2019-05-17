@@ -26,10 +26,27 @@ class Slaves extends Component {
 			  <div className="row justify-content-center">
 					<div className="col-lg-4 col-md-6">
 						<img className="img-fluid py-4" src={ process.env.PUBLIC_URL + '/prnkstr_long_logo.svg' } />
-						<h2> Current Connections </h2>
 					</div>
 				</div>
-				{ this.state.users.map( ( user ) => <Link to={ '/controlpanel/' + user.id }><div className="card"><p key={ user.id }>{ user.name }</p></div></Link> ) }
+				<div className="row justify-content-center">
+					<div className="col-lg-4 col-md-6 text-center">
+						<h2 className="mb-4">Current Connections</h2>
+					</div>
+				</div>
+				<div className="row justify-content-center">
+					{ this.state.users.map( function( user ) {
+						return(
+							<Link to={ '/controlpanel/' + user.id } className="text-danger">
+								<div className="col">
+									<div className="card border-danger mb-4">
+										<div className="card-body">
+											<p className="card-text" key={ user.id }>{ user.name }</p>
+										</div>
+									</div>
+								</div>
+							</Link> ) } )
+					}
+				</div>
 			</div>
 		)
 	}
