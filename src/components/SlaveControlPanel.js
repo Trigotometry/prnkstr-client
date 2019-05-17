@@ -293,20 +293,20 @@ class UserEdit extends Component {
 		           <input type="checkbox" name="paragraph_background" value={this.state.marquee} onChange={ this._toggleMarquee } checked={ this.state.marquee }/>
 						 </div>
 						 <div>
-		           <h6 className="stroker">*Pick a an element to marquee</h6>
+		           <h6 className="textPopper stroker">*Pick a an element to marquee</h6>
 		           <input type="text" name="custom_header_text" value={ this.state.marquee_element } onChange={ this._handleChangeMarqueeElement} />
-		           <h6 className="stroker">Marquee Speed</h6>
+		           <h6 className="textPopper stroker">Marquee Speed</h6>
 		           <input type="range" min="0" max="100" value="50"  name="custom_header_text" value={ this.state.marquee_speed } onChange={ this._handleChangeMarqueeSpeed } />
 							 </div>
          		</div>
          </div>
 
-         <div className="postItsml postIt" id="">
+         <div className="postItsml postIt" id="unicornMode">
            <h5>Unicorn Mode</h5>
            <input type="checkbox" name="paragraph_background" value={this.state.unicorn_mode} onChange={ this._toggleUnicornMode } checked={ this.state.unicorn_mode }/>
          </div>
 
-         <div className="postItlrg postIt" id="">
+         <div className="postItlrg postIt" id="wordSwapperBox">
            <h5>Word Swapper</h5>
            <input type="checkbox" name="paragraph_background" value={this.state.word_swapper} onChange={ this._toggleWordSwapper } checked={ this.state.word_swapper }/>
            <h6>Existing Word</h6>
@@ -315,13 +315,12 @@ class UserEdit extends Component {
            <input type="text" name="custom_header_text" value={ this.state.new_word } onChange={ this._handleChangeNewWord } />
          </div>
 
-         <div className="postItlrg postIt" id="">
-           <h5>Hidden Video</h5>
+         <div className="postItlrg postIt" id="hiddenVideoBox">
+           <h5 className="textPopper">Hidden Video</h5>
            <input type="checkbox" name="paragraph_background" value={this.state.hidden_video} onChange={ this._toggleHiddenVideo } checked={ this.state.hidden_video }/>
-           <h6>Hidden Video URL</h6>
+           <h6 className="textPopper">Hidden Video URL</h6>
            <input type="text" name="custom_header_text" value={ this.state.hidden_video_url } onChange={ this._handleChangeHiddenVideoUrl } />
-           <h6>Hidden Video Element Select</h6>
-           <input type="text" name="custom_header_text" value={ this.state.hidden_video_element } onChange={ this._handleChangeHiddenVideoElement } />
+
          </div>
 
 					<div className="postItlrg postIt" id="awwSnapBox">

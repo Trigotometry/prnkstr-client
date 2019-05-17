@@ -83,6 +83,7 @@ form{
   text-align: center;
   transform: rotate(4deg);
   padding: 20px;
+  background-color: #F2F0CE;
 }
 #customBackgroundBox {
     padding: 31px;
@@ -106,8 +107,30 @@ form{
   transform: rotate(3deg);
   padding: 45px 0px;
   transform: scale(-1, 1);
-
 }
+
+#unicornMode {
+  text-align: center;
+  transform: rotate(3deg);
+  padding: 45px 0px;
+  background-image: url('https://cdn.dribbble.com/users/576253/screenshots/4323685/rainbow-animation-800x600.gif');
+  background-size: 200%;
+}
+#wordSwapperBox {
+  text-align: center;
+  transform: rotate(-2deg);
+  padding: 2px 2px;
+  background-size: 200%;
+  background-color: #F2F0CE;
+}
+#hiddenVideoBox {
+  text-align: center;
+  transform: rotate(1deg);
+  padding: 29px 2px;
+  background-size: 100%;
+  background-image: url("https://hips.hearstapps.com/digitalspyuk.cdnds.net/16/34/1472221491-rick-astley.gif");
+}
+
 #marqueeBox {
   display: inline-block;
   /* text-align: center; */
@@ -186,5 +209,5 @@ h5{
 }
 
 .stroker{
-  text-shadow: 5px 4px 0px #000000;
+  color: magenta;
 }
