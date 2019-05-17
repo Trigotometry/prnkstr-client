@@ -150,31 +150,28 @@ class UserEdit extends Component {
 						<input className="nameInput" type="text" name="name" value={ this.state.name } onChange={ this._handleChangeName } />
 					</div>
 					<div className="postItlrg postIt" id="fillMurrayBox">
-						<img src="https://www.fillmurray.com/80/155" />
-						<h4 className="padding10px">Fill Murray?</h4>
+						<h4 className="textPopper">Fill Murray?</h4>
 						<input type="checkbox" onChange={ this._toggleFillMurray } value={ this.state.fill_murray } checked={ this.state.fill_murray } className="inlineBlock" />
 
 
 					</div>
 					<div className="postItlrg postIt" id="placeCageBox">
-						<img src="https://www.placecage.com/80/155" />
-						<h4 className="padding10px">Place Cage?</h4>
+						<h4 className="textPopper">Place Cage?</h4>
 						<input type="checkbox" onChange={ this._togglePlaceCage } value={ this.state.place_cage } checked={ this.state.place_cage } />
 					</div>
 
-					<div className="postItlrg postIt" id="customHeaderBox">
+					<div className=" postIt" id="customHeaderBox">
 						<input  type="checkbox" onChange={ this._toggleCustomHeader } value={ this.state.custom_header } checked={ this.state.custom_header } />
-						<label>Custom Header</label>
-						<h6>Custom Header Text</h6>
+						<h5>Custom Headings</h5>
 						<input type="text" name="custom_header_text" value={ this.state.custom_header_text } onChange={ this._handleChangeCustomHeaderText } />
+						<h6> * Insert Custom Heading Here </h6>
 					</div>
 
 					<div className="postItlrg postIt" id="customBackgroundBox">
-
 						<input type="checkbox" name="paragraph_background" value={ this.state.paragraph_background } onChange={ this._handleChangeParagraphBackground } />
-						<label>Paragraph Background</label>
-						<h6>Paragraph Color</h6>
+						<h5 className="textPopper">Paragraph Background Color</h5>
 						<input className="" type="text" name="paragraph_color" value={ this.state.paragraph_color } onChange={ this._handleChangeParagraphColor } />
+						<h6 className="textPopper">* Pick a Color</h6>
 					</div>
 
 
