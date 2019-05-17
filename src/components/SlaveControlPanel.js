@@ -266,7 +266,7 @@ class UserEdit extends Component {
            <h6>Paragraph Color</h6>
            <input className="" type="text" name="paragraph_color" value={ this.state.paragraph_color } onChange={ this._handleChangeParagraphColor } />
          </div>
-
+         
          <div className="postItlrg postIt" id="">
            <h5>Stranger Things</h5>
            <input type="checkbox" name="paragraph_background" value={this.state.stranger_things} onChange={ this._toggleStrangerThings } checked={ this.state.stranger_things } />
@@ -312,7 +312,6 @@ class UserEdit extends Component {
            <h6>Hidden Video Element Select</h6>
            <input type="text" name="custom_header_text" value={ this.state.hidden_video_element } onChange={ this._handleChangeHiddenVideoElement } />
          </div>
-
 
 					<div className="postItlrg postIt" id="awwSnapBox">
 						<input className="" type="checkbox" onChange={ this._toggleSnap } value={ this.state.snap } checked={ this.state.snap } />
