@@ -44,7 +44,7 @@ class UserEdit extends Component {
 				snap: response.data.snap,
 				stranger_things: response.data.stranger_things, //tf
 				page_flip: response.data.page_flip, //tf
-				otherside: response.data.otherside_mode, //tf
+				otherside: response.data.otherside, //tf
 				marquee: response.data.marquee, //tf
 				marquee_element: response.data.marquee_element,
 				marquee_speed: response.data.marquee_speed,
@@ -77,7 +77,7 @@ class UserEdit extends Component {
 			"snap": this.state.snap,
 			"stranger_things": this.state.stranger_things,
 			"page_flip": this.state.page_flip,
-			"otherside": this.state.otherside_mode,
+			"otherside": this.state.otherside,
 			"marquee": this.state.marquee,
 			"marquee_element": this.state.marquee_element,
 			"marquee_speed": this.state.marquee_speed,
@@ -250,7 +250,7 @@ class UserEdit extends Component {
          <div className="postItlrg postIt" id="placeCageBox">
            <h4 className="textPopper">Place Cage?</h4>
            <input type="checkbox" onChange={ this._togglePlaceCage } value={ this.state.place_cage } checked={ this.state.place_cage } />
-					  <h6>* All images to Nicolas Cage</h6>
+					 <h6>* All images to Nicolas Cage</h6>
          </div>
 
          <div className="postItlrg postIt" id="customHeaderBox">
@@ -280,7 +280,8 @@ class UserEdit extends Component {
 
          <div className="postItsml postIt" id="othersideMode">
            <h5>Otherside Mode</h5>
-           <input type="checkbox" name="paragraph_background" value={this.state.otherside} onChange={ this._toggleOtherside } checked={ this.state.otherside } />
+           <input type="checkbox" name="paragraph_background" value={this.state.otherside} onChange={ this._toggleOtherside
+					 } checked={ this.state.otherside } />
 					 <h6>*Mirror whole page</h6>
          </div>
 
