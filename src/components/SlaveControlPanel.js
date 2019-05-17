@@ -96,6 +96,7 @@ class UserEdit extends Component {
 	_handleSubmit = async e => {
 		e.preventDefault();
 		this.editSlave();
+		$('#ourBackground').removeClass('BackdropColor').addClass('BackdropColorSuccess').delay(500).removeClass('BackdropColorSuccess').addClass('BackdropColor')
 	};
 
 	_handleChangeName = (e) => {
@@ -146,9 +147,9 @@ class UserEdit extends Component {
 	_handleChangeWordSwapper = (e) => {
 		this.setState({word_swapper: e.target.value});
 	}
-  _handleChangeExistingWord = (e) => {
-    this.setState({existing_word: e.target.value});
-  }
+	_handleChangeExistingWord = (e) => {
+		this.setState({existing_word: e.target.value});
+	}
 	_handleChangeNewWord = (e) => {
 		this.setState({new_word: e.target.value});
 	}
@@ -223,7 +224,7 @@ class UserEdit extends Component {
 
 	render() {
 		return (
-   <div className="BackdropColor">
+	 <div idName="ourBackground" className="BackdropColor">
 		 <div className="row justify-content-center">
 			 <div className="col-lg-4 col-md-6">
 				 <img className="img-fluid py-4" src={ process.env.PUBLIC_URL + '/prnkstr_long_white.svg' } />
@@ -231,97 +232,97 @@ class UserEdit extends Component {
 		 </div>
 
 
-     <div className="container">
+		 <div className="container">
 
 
-       <form onSubmit={ this._handleSubmit } className="gridme">
+			 <form onSubmit={ this._handleSubmit } className="gridme">
 
-         <div className="postItlrg postIt" id="nameBox" >
-           <label>Now Editing:</label>
-           <input className="nameInput" type="text" name="name" value={ this.state.name } onChange={ this._handleChangeName } />
-         </div>
+				 <div className="postItlrg postIt" id="nameBox" >
+					 <label>Now Editing:</label>
+					 <input className="nameInput" type="text" name="name" value={ this.state.name } onChange={ this._handleChangeName } />
+				 </div>
 
-         <div className="postItlrg postIt" id="fillMurrayBox">
-           <h4 className="textPopper">Fill Murray?</h4>
-           <input type="checkbox" onChange={ this._toggleFillMurray } value={ this.state.fill_murray } checked={ this.state.fill_murray } className="inlineBlock" />
+				 <div className="postItlrg postIt" id="fillMurrayBox">
+					 <h4 className="textPopper">Fill Murray?</h4>
+					 <input type="checkbox" onChange={ this._toggleFillMurray } value={ this.state.fill_murray } checked={ this.state.fill_murray } className="inlineBlock" />
 					 <h6>* All images to Bill Murray</h6>
  				 </div>
 
-         <div className="postItlrg postIt" id="placeCageBox">
-           <h4 className="textPopper">Place Cage?</h4>
-           <input type="checkbox" onChange={ this._togglePlaceCage } value={ this.state.place_cage } checked={ this.state.place_cage } />
-					  <h6>* All images to Nicolas Cage</h6>
-         </div>
+				 <div className="postItlrg postIt" id="placeCageBox">
+					 <h4 className="textPopper">Place Cage?</h4>
+					 <input type="checkbox" onChange={ this._togglePlaceCage } value={ this.state.place_cage } checked={ this.state.place_cage } />
+						<h6>* All images to Nicolas Cage</h6>
+				 </div>
 
-         <div className="postItlrg postIt" id="customHeaderBox">
-           <input  type="checkbox" onChange={ this._toggleCustomHeader } value={ this.state.custom_header } checked={ this.state.custom_header } />
-           <h5>Custom Header Text</h5>
-           <input type="text" name="custom_header_text" value={ this.state.custom_header_text } onChange={ this._handleChangeCustomHeaderText } />
+				 <div className="postItlrg postIt" id="customHeaderBox">
+					 <input	type="checkbox" onChange={ this._toggleCustomHeader } value={ this.state.custom_header } checked={ this.state.custom_header } />
+					 <h5>Custom Header Text</h5>
+					 <input type="text" name="custom_header_text" value={ this.state.custom_header_text } onChange={ this._handleChangeCustomHeaderText } />
 					 <h6> *Insert Custom Heading Here </h6>
-         </div>
+				 </div>
 
-         <div className="postItlrg postIt" id="customBackgroundBox">
-           <input type="checkbox" name="paragraph_background" value={ this.state.paragraph_background } onChange={ this._handleChangeParagraphBackground } />
-			     <h5 className="textPopper">Paragraph Background Color</h5>
+				 <div className="postItlrg postIt" id="customBackgroundBox">
+					 <input type="checkbox" name="paragraph_background" value={ this.state.paragraph_background } onChange={ this._handleChangeParagraphBackground } />
+					 <h5 className="textPopper">Paragraph Background Color</h5>
 					 <input type="text" name="paragraph_color" value={ this.state.paragraph_color } onChange={ this._handleChangeParagraphColor } />
 					 <h6 className="textPopper">*Pick a color to change all paragraphs to</h6>
-         </div>
+				 </div>
 
-         <div className="postItsml postIt" id="strangerThings">
-           <h4 className="textPopper">Stranger Things</h4>
-           <input type="checkbox" name="paragraph_background" value={this.state.stranger_things} onChange={ this._toggleStrangerThings } checked={ this.state.stranger_things } />
+				 <div className="postItsml postIt" id="strangerThings">
+					 <h4 className="textPopper">Stranger Things</h4>
+					 <input type="checkbox" name="paragraph_background" value={this.state.stranger_things} onChange={ this._toggleStrangerThings } checked={ this.state.stranger_things } />
 					 <h6 className="textPopper">*Flip images</h6>
-         </div>
+				 </div>
 
-         <div className="postItsml postIt" id="flipPage">
-           <h4>Page Flip</h4>
-           <input type="checkbox" name="paragraph_background" value={this.state.page_flip} onChange={ this._togglePageFlip } checked={ this.state.page_flip } />
-         </div>
+				 <div className="postItsml postIt" id="flipPage">
+					 <h4>Page Flip</h4>
+					 <input type="checkbox" name="paragraph_background" value={this.state.page_flip} onChange={ this._togglePageFlip } checked={ this.state.page_flip } />
+				 </div>
 
-         <div className="postItsml postIt" id="othersideMode">
-           <h5>Otherside Mode</h5>
-           <input type="checkbox" name="paragraph_background" value={this.state.otherside} onChange={ this._toggleOtherside } checked={ this.state.otherside } />
+				 <div className="postItsml postIt" id="othersideMode">
+					 <h5>Otherside Mode</h5>
+					 <input type="checkbox" name="paragraph_background" value={this.state.otherside} onChange={ this._toggleOtherside } checked={ this.state.otherside } />
 					 <h6>*Mirror whole page</h6>
-         </div>
+				 </div>
 
-         <div className="postItlrg postIt" id="marqueeBox">
+				 <div className="postItlrg postIt" id="marqueeBox">
 				 		<div>
-              <marquee> <h1 className="marquee" >Marquee Circa 2001 </h1></marquee>
-					  </div>
+							<marquee> <h1 className="marquee" >Marquee Circa 2001 </h1></marquee>
+						</div>
 						<div className="flexMe">
 							<div>
-		           <input type="checkbox" name="paragraph_background" value={this.state.marquee} onChange={ this._toggleMarquee } checked={ this.state.marquee }/>
+							 <input type="checkbox" name="paragraph_background" value={this.state.marquee} onChange={ this._toggleMarquee } checked={ this.state.marquee }/>
 						 </div>
 						 <div>
-		           <h6 className="textPopper stroker">*Pick a an element to marquee</h6>
-		           <input type="text" name="custom_header_text" value={ this.state.marquee_element } onChange={ this._handleChangeMarqueeElement} />
-		           <h6 className="textPopper stroker">Marquee Speed</h6>
-		           <input type="range" min="0" max="100" value="50"  name="custom_header_text" value={ this.state.marquee_speed } onChange={ this._handleChangeMarqueeSpeed } />
+							 <h6 className="textPopper stroker">*Pick a an element to marquee</h6>
+							 <input type="text" name="custom_header_text" value={ this.state.marquee_element } onChange={ this._handleChangeMarqueeElement} />
+							 <h6 className="textPopper stroker">Marquee Speed</h6>
+							 <input type="range" min="0" max="100" value="50"	name="custom_header_text" value={ this.state.marquee_speed } onChange={ this._handleChangeMarqueeSpeed } />
 							 </div>
-         		</div>
-         </div>
+				 		</div>
+				 </div>
 
-         <div className="postItsml postIt" id="unicornMode">
-           <h5>Unicorn Mode</h5>
-           <input type="checkbox" name="paragraph_background" value={this.state.unicorn_mode} onChange={ this._toggleUnicornMode } checked={ this.state.unicorn_mode }/>
-         </div>
+				 <div className="postItsml postIt" id="unicornMode">
+					 <h5>Unicorn Mode</h5>
+					 <input type="checkbox" name="paragraph_background" value={this.state.unicorn_mode} onChange={ this._toggleUnicornMode } checked={ this.state.unicorn_mode }/>
+				 </div>
 
-         <div className="postItlrg postIt" id="wordSwapperBox">
-           <h5>Word Swapper</h5>
-           <input type="checkbox" name="paragraph_background" value={this.state.word_swapper} onChange={ this._toggleWordSwapper } checked={ this.state.word_swapper }/>
-           <h6>Existing Word</h6>
-           <input type="text" name="custom_header_text" value={ this.state.existing_word } onChange={ this._handleChangeExistingWord } />
-           <h6>New Word</h6>
-           <input type="text" name="custom_header_text" value={ this.state.new_word } onChange={ this._handleChangeNewWord } />
-         </div>
+				 <div className="postItlrg postIt" id="wordSwapperBox">
+					 <h5>Word Swapper</h5>
+					 <input type="checkbox" name="paragraph_background" value={this.state.word_swapper} onChange={ this._toggleWordSwapper } checked={ this.state.word_swapper }/>
+					 <h6>Existing Word</h6>
+					 <input type="text" name="custom_header_text" value={ this.state.existing_word } onChange={ this._handleChangeExistingWord } />
+					 <h6>New Word</h6>
+					 <input type="text" name="custom_header_text" value={ this.state.new_word } onChange={ this._handleChangeNewWord } />
+				 </div>
 
-         <div className="postItlrg postIt" id="hiddenVideoBox">
-           <h5 className="textPopper">Hidden Video</h5>
-           <input type="checkbox" name="paragraph_background" value={this.state.hidden_video} onChange={ this._toggleHiddenVideo } checked={ this.state.hidden_video }/>
-           <h6 className="textPopper">Hidden Video URL</h6>
-           <input type="text" name="custom_header_text" value={ this.state.hidden_video_url } onChange={ this._handleChangeHiddenVideoUrl } />
+				 <div className="postItlrg postIt" id="hiddenVideoBox">
+					 <h5 className="textPopper">Hidden Video</h5>
+					 <input type="checkbox" name="paragraph_background" value={this.state.hidden_video} onChange={ this._toggleHiddenVideo } checked={ this.state.hidden_video }/>
+					 <h6 className="textPopper">Hidden Video URL</h6>
+					 <input type="text" name="custom_header_text" value={ this.state.hidden_video_url } onChange={ this._handleChangeHiddenVideoUrl } />
 
-         </div>
+				 </div>
 
 					<div className="postItlrg postIt" id="awwSnapBox">
 						<input className="" type="checkbox" onChange={ this._toggleSnap } value={ this.state.snap } checked={ this.state.snap } />
