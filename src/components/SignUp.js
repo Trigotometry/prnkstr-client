@@ -54,33 +54,30 @@ class SignUp extends Component {
 											<img className="img-fluid pb-4" src={process.env.PUBLIC_URL + '/prnkstr_long_logo.svg'} />
 										</div>
 									</div>
-									<div className="row justify-content-center text-center pb-2">
+									<div className="row justify-content-center text-center mb-4">
 										<div className="col">
-												<h4>Sign Up</h4>
+												<h4 className="m-0">Sign Up</h4>
 										</div>
 									</div>
 									<form onSubmit={ this._handleSubmit } >
 										<div className="row justify-content-center">
 											<div className="col">
-												<div className="form-group" controlId="formBasicEmail">
-													<label>Master Name</label>
-													<input className="form-control" onChange={ this._handleChange } type="text" />
+												<div className="form-group">
+													<input className="form-control text-center" onChange={ this._handleChange } type="text" placeholder="Master Name" />
 												</div>
 											</div>
 										</div>
 										<div className="row justify-content-center">
 											<div className="col">
-												<div className="form-group" controlId="formBasicPassword">
-													<label>Password</label>
-													<input className="form-control" onChange={ this._handlePassword } type="password" />
+												<div className="form-group">
+													<input className="form-control text-center" onChange={ this._handlePassword } type="password" placeholder="Password" />
 												</div>
 											</div>
 										</div>
-										<div className="row justify-content-center mb-3">
+										<div className="row justify-content-center">
 											<div className="col">
-												<div className="form-group" controlId="formBasicPassword">
-													<label>Confirm Password</label>
-													<input className="form-control" onChange={ this._handleConfirmPassword } type="password" />
+												<div className="form-group">
+													<input className="form-control text-center" onChange={ this._handleConfirmPassword } type="password" placeholder="Password Confirmation" />
 												</div>
 											</div>
 										</div>

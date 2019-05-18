@@ -76,35 +76,33 @@ class SignIn extends Component {
 					<div className="row h-100 d-flex flex-column justify-content-center align-content-center">
 						<div className="col-lg-4 col-md-6">
 							<div className="card">
-								<div className="card-body">
-									<div className="row justify-content-center">
+								<div className="card-body p-5 text-center">
+									<div className="row no-gutters justify-content-center">
 										<div className="col">
-											<img className="img-fluid py-4" src={ process.env.PUBLIC_URL + '/prnkstr_long_logo.svg' } />
+											<img className="img-fluid mb-4" src={ process.env.PUBLIC_URL + '/prnkstr_long_logo.svg' } />
 										</div>
 									</div>
-									<div className="row justify-content-center">
+									<div className="row no-gutters justify-content-center mb-4">
 										<div className="col text-center">
-											<h4>Sign In</h4>
+											<h4 className="mb-0">Sign In</h4>
 										</div>
 									</div>
 									<form onSubmit={ this._handleSubmit }>
-										<div className="row justify-content-center mb-4">
+										<div className="row no-gutters justify-content-center">
 											<div className="col">
 												<div className="form-group">
-													<label>Master Name</label>
-													<input className="form-control" onChange={ this._handleName } type="text" placeholder="Enter, master..." />
+													<input className="form-control text-center" onChange={ this._handleName } type="text" placeholder="Master Name" />
 												</div>
 											</div>
 										</div>
-										<div className="row justify-content-center mb-4">
+										<div className="row justify-content-center">
 											<div className="col">
 												<div className="form-group">
-													<label>Password</label>
-													<input className="form-control" onChange={ this._handlePassword } type="password" placeholder="Password..." />
+													<input className="form-control text-center" onChange={ this._handlePassword } type="password" placeholder="Password" />
 												</div>
 											</div>
 										</div>
-										<div className="row text-center justify-content-center mb-4">
+										<div className="row justify-content-center mb-1">
 											<div className="col">
 												<button className="btn btn-block btn-outline-success" type="submit">Submit</button>
 											</div>
@@ -112,7 +110,8 @@ class SignIn extends Component {
 									</form>
 									<div className="row justify-content-center">
 										<div className="col" className="text-center">
-											<Link to="/signup"><h5 className="text-danger">No Account? No Worries.</h5></Link>
+											<hr className="my-4"/>
+											<Link to="/signup"><h5 className="text-danger mb-0">No Account? No Worries.</h5></Link>
 										</div>
 									</div>
 								</div>
