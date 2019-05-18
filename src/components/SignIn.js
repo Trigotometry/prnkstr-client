@@ -88,7 +88,7 @@ class SignIn extends Component {
 										</div>
 									</div>
 									<form onSubmit={ this._handleSubmit }>
-										<div className="row no-gutters justify-content-center">
+										<div className="row justify-content-center">
 											<div className="col">
 												<div className="form-group">
 													<input className="form-control text-center" onChange={ this._handleName } type="text" placeholder="Master Name" />
@@ -102,7 +102,7 @@ class SignIn extends Component {
 												</div>
 											</div>
 										</div>
-										<div className="row justify-content-center mb-1">
+										<div className="row justify-content-center">
 											<div className="col">
 												<button className="btn btn-block btn-outline-success" type="submit">Submit</button>
 											</div>

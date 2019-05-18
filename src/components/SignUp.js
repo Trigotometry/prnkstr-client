@@ -83,7 +83,7 @@ class SignUp extends Component {
 										</div>
 										<div className="row text-center justify-content-center">
 											<div className="col">
-												<button className="btn btn-block btn-outline-danger" type="submit">Submit</button>
+												<button className="btn btn-block btn-outline-success" type="submit">Submit</button>
 											</div>
 										</div>
 									</form>
