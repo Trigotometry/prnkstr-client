@@ -1,3 +1,4 @@
-# React front-end control panel for the Prnkstr Chrome Extension.
+### **Prnkstr — A DOM manipulating Chrome extension.**
 
-More details to follow, once I have some time.
+This is the frontend component for the Prnkstr extension created by Thomas, Adlan & Sam.
+[**Please visit the main README.**](https://github.com/Trigotometry/prnkstr-extension)
