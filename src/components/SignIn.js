@@ -108,8 +108,8 @@ class SignIn extends Component {
 											</div>
 										</div>
 									</form>
-									<div className="row justify-content-center">
-										<div className="col" className="text-center">
+									<div className="row justify-content-center text-center">
+										<div className="col">
 											<hr className="my-4"/>
 											<Link to="/signup"><h5 className="text-danger mb-0">No Account? No Worries.</h5></Link>
 										</div>
