@@ -1,9 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import './App.css';
-import {Link} from "react-router-dom";
-
-const USER_URL = "https://prnkstrserver.herokuapp.com/users"
 
 class UserEdit extends Component {
 	constructor(props) {
@@ -66,7 +63,7 @@ class UserEdit extends Component {
 	editSlave = async (e) => {
 	let userId = this.props.match.params.user
 	axios
-		.put( `https://prnkstrserver.herokuapp.com/users/${userId}.json`, {
+		.put( `https://prnkstrserver.herokuapp.com/users/${ userId }.json`, {
 			"name": this.state.name,
 			"fill_murray": this.state.fill_murray,
 			"place_cage": this.state.place_cage,

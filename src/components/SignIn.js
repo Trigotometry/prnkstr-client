@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-// import Button from 'react-bootstrap/Button';
 import axios from 'axios';
 
-import { Redirect } from 'react-router-dom'
-import { Link } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom'
 
 const SERVER_URL = "https://prnkstrserver.herokuapp.com/masters.json"
 
